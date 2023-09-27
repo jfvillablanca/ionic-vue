@@ -8,12 +8,8 @@
             <div>
               <ion-header>{{ profile.name }}</ion-header>
               <ion-note>{{ profile.phone }}</ion-note>
-              <ion-menu-toggle :auto-hide="false">
-                <ion-button :router-link="`/loyalty`">
-                  <!-- add crown icon -->
-                  <strong>{{ `${profile.points} Points` }}</strong>
-                  <!-- add right arrow icon -->
-                </ion-button>
+              <ion-menu-toggle>
+                <points-button :profile="profile" />
               </ion-menu-toggle>
             </div>
 
@@ -49,6 +45,7 @@
 </template>
 
 <script setup lang="ts">
+import { PointsButton } from '@/components';
 import { ProfileKey } from '@/symbols';
 import {
   IonApp,
