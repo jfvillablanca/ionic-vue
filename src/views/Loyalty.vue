@@ -12,31 +12,21 @@
     <ion-content :fullscreen="true">
       <div id="container">
         <div>
-          <div :style="{ display: 'flex', justifyContent: 'space-between' }">
-            <div>
-              <!-- add crown icon -->
-              <strong>{{ `${tiers[0]} Tier` }}</strong>
-            </div>
-            <button>
-              <p>View All</p>
-              <!-- add right arrow icon -->
-            </button>
-          </div>
+          <!-- add crown icon -->
+          <section-header
+            :header="`${tiers[0]} Tier`"
+            redirect-text="View All"
+          />
           <p>
             Lorem ipsum dolor sit amet, officia excepteur ex fugiat
             reprehenderit
           </p>
         </div>
+
         <!-- add progress wheel -->
-        <div :style="{ display: 'flex', justifyContent: 'space-between' }">
-          <div>
-            <strong>Rewards</strong>
-          </div>
-          <button>
-            <p>How it Works</p>
-            <!-- add right arrow icon -->
-          </button>
-        </div>
+
+        <section-header header="Rewards" redirect-text="How it Works" />
+
         <div :style="{ display: 'flex', justifyContent: 'space-around' }">
           <button v-for="tier in ['All'].concat(tiers)">{{ tier }}</button>
         </div>
@@ -56,6 +46,7 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/vue';
+import { SectionHeader } from '@/components';
 const tiers = ['Beginner', 'Intermediate', 'Loyal'];
 </script>
 
