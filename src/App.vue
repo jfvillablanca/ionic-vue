@@ -82,8 +82,8 @@ import { Profile, MenuItem } from './types';
 const selectedIndex = ref(0);
 const appPages = [
   {
-    title: 'Inbox',
-    url: '/folder/Inbox',
+    title: 'Home',
+    url: '/home',
     iosIcon: mailOutline,
     mdIcon: mailSharp,
   },
@@ -110,12 +110,6 @@ const appPages = [
     url: '/folder/Trash',
     iosIcon: trashOutline,
     mdIcon: trashSharp,
-  },
-  {
-    title: 'Spam',
-    url: '/folder/Spam',
-    iosIcon: warningOutline,
-    mdIcon: warningSharp,
   },
 ];
 
