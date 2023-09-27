@@ -1,5 +1,6 @@
 export type Profile = {
-  name: string;
+  firstName: string;
+  lastName: string;
   phone: string;
   points: number;
 };

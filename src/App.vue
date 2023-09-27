@@ -6,7 +6,7 @@
           <ion-list id="inbox-list">
             <!-- Profile Header -->
             <div>
-              <ion-header>{{ profile.name }}</ion-header>
+              <ion-header>{{ fullName }}</ion-header>
               <ion-note>{{ profile.phone }}</ion-note>
               <ion-menu-toggle>
                 <points-button :profile="profile" />
@@ -116,10 +116,12 @@ const appPages = [
 ];
 
 const profile = {
-  name: 'Chou Tzuyu',
+  firstName: 'Chou',
+  lastName: 'Tzuyu',
   phone: '+63 912 345 6789',
   points: 0,
 };
+const fullName = `${profile.firstName} ${profile.lastName}`;
 provide(ProfileKey, profile);
 
 const path = window.location.pathname.split('folder/')[1];
