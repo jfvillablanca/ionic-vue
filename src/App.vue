@@ -124,6 +124,7 @@ const fullName = `${profile.firstName} ${profile.lastName}`;
 
 const menuItems: MenuItem[] = [
   {
+    id: 1,
     name: 'Steak Fries Veggies',
     category: 'Meat',
     price: 175,
@@ -134,18 +135,21 @@ const menuItems: MenuItem[] = [
     },
   },
   {
+    id: 2,
     name: 'Chicken Salad',
     category: 'Chicken',
     price: 172,
     rating: 4,
   },
   {
+    id: 3,
     name: 'Sorvetes Primavera',
     category: 'Dessert',
     price: 185,
     rating: 5,
   },
   {
+    id: 4,
     name: 'Fried Chicken',
     category: 'Chicken',
     price: 175,

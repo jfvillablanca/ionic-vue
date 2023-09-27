@@ -5,9 +5,18 @@ export type Profile = {
   points: number;
 };
 
+export const menuCategories = [
+  'Meat',
+  'Chicken',
+  'Breakfast',
+  'Seafood',
+  'Dessert',
+] as const;
+
 export type MenuItem = {
+  id: number;
   name: string;
-  category: 'Meat' | 'Chicken' | 'Breakfast' | 'Seafood' | 'Dessert';
+  category: (typeof menuCategories)[number];
   price: number;
   rating: number;
   reward?: {
