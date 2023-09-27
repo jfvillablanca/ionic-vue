@@ -41,24 +41,6 @@
               </ion-item>
             </ion-menu-toggle>
           </ion-list>
-
-          <ion-list id="labels-list">
-            <ion-list-header>Labels</ion-list-header>
-
-            <ion-item
-              v-for="(label, index) in labels"
-              lines="none"
-              :key="index"
-            >
-              <ion-icon
-                aria-hidden="true"
-                slot="start"
-                :ios="bookmarkOutline"
-                :md="bookmarkSharp"
-              ></ion-icon>
-              <ion-label>{{ label }}</ion-label>
-            </ion-item>
-          </ion-list>
         </ion-content>
       </ion-menu>
       <ion-router-outlet id="main-content"></ion-router-outlet>
@@ -69,27 +51,22 @@
 <script setup lang="ts">
 import {
   IonApp,
-  IonButton,
   IonContent,
   IonIcon,
   IonItem,
   IonHeader,
   IonLabel,
   IonList,
-  IonListHeader,
   IonMenu,
   IonMenuToggle,
   IonNote,
   IonRouterOutlet,
   IonSplitPane,
-  IonToolbar,
 } from '@ionic/vue';
 import { ref } from 'vue';
 import {
   archiveOutline,
   archiveSharp,
-  bookmarkOutline,
-  bookmarkSharp,
   heartOutline,
   heartSharp,
   mailOutline,
@@ -98,8 +75,6 @@ import {
   paperPlaneSharp,
   trashOutline,
   trashSharp,
-  warningOutline,
-  warningSharp,
 } from 'ionicons/icons';
 
 const selectedIndex = ref(0);
@@ -141,7 +116,6 @@ const appPages = [
     mdIcon: warningSharp,
   },
 ];
-const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
 const profile = {
   name: 'Chou Tzuyu',
