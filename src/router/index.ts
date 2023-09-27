@@ -8,11 +8,11 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/home',
-    component: () => import('../views/Home.vue'),
+    component: () => import('../views/HomeMainContent.vue'),
   },
   {
     path: '/loyalty',
-    component: () => import('../views/Loyalty.vue'),
+    component: () => import('../views/LoyaltyMainContent.vue'),
   },
   {
     path: '/folder/:id',
