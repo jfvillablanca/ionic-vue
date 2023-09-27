@@ -88,8 +88,8 @@ const appPages = [
     mdIcon: mailSharp,
   },
   {
-    title: 'Outbox',
-    url: '/folder/Outbox',
+    title: 'Order Now!',
+    url: '/menu',
     iosIcon: paperPlaneOutline,
     mdIcon: paperPlaneSharp,
   },
