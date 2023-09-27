@@ -3,7 +3,7 @@
     <ion-header :translucent="true">
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-menu-button color="primary"></ion-menu-button>
+          <ion-menu-button color="primary" />
         </ion-buttons>
         <ion-title>{{ $route.params.id }}</ion-title>
       </ion-toolbar>
@@ -12,7 +12,9 @@
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">{{ $route.params.id }}</ion-title>
+          <ion-title size="large">
+            {{ $route.params.id }}
+          </ion-title>
         </ion-toolbar>
       </ion-header>
 
@@ -24,8 +26,7 @@
             target="_blank"
             rel="noopener noreferrer"
             href="https://ionicframework.com/docs/components"
-            >UI Components</a
-          >
+          >UI Components</a>
         </p>
       </div>
     </ion-content>

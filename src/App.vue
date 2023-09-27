@@ -1,7 +1,10 @@
 <template>
   <ion-app>
     <ion-split-pane content-id="main-content">
-      <ion-menu content-id="main-content" type="overlay">
+      <ion-menu
+        content-id="main-content"
+        type="overlay"
+      >
         <ion-content>
           <ion-list id="inbox-list">
             <!-- Profile Header -->
@@ -32,14 +35,14 @@
                   slot="start"
                   :ios="p.iosIcon"
                   :md="p.mdIcon"
-                ></ion-icon>
+                />
                 <ion-label>{{ p.title }}</ion-label>
               </ion-item>
             </ion-menu-toggle>
           </ion-list>
         </ion-content>
       </ion-menu>
-      <ion-router-outlet id="main-content"></ion-router-outlet>
+      <ion-router-outlet id="main-content" />
     </ion-split-pane>
   </ion-app>
 </template>

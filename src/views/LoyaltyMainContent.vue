@@ -3,7 +3,7 @@
     <ion-header :translucent="true">
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-menu-button color="primary"></ion-menu-button>
+          <ion-menu-button color="primary" />
         </ion-buttons>
         <ion-title>Loyalty Points</ion-title>
       </ion-toolbar>
@@ -25,10 +25,18 @@
 
         <!-- add progress wheel -->
 
-        <section-header header="Rewards" redirect-text="How it Works" />
+        <section-header
+          header="Rewards"
+          redirect-text="How it Works"
+        />
 
         <div :style="{ display: 'flex', justifyContent: 'space-around' }">
-          <button v-for="tier in ['All'].concat(tiers)">{{ tier }}</button>
+          <button
+            v-for="tier in ['All'].concat(tiers)"
+            :key="tier"
+          >
+            {{ tier }}
+          </button>
         </div>
         <!-- add reward items (cards) -->
       </div>

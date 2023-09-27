@@ -11,7 +11,7 @@
     "test:unit": "vitest",
     "format": "prettier --config ./.prettierrc -w '**/*.{ts,js,vue}' && git update-index --again",
     "prelint": "yarn format",
-    "lint": "eslint --fix"
+    "lint": "eslint src --ext ts,js,vue --fix"
   },
   "dependencies": {
     "@capacitor/app": "5.0.6",
