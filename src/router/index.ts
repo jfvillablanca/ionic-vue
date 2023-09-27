@@ -5,6 +5,9 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '',
     redirect: '/folder/Inbox',
+  {
+    path: '/loyalty',
+    component: () => import('../views/Loyalty.vue'),
   },
   {
     path: '/folder/:id',

@@ -4,8 +4,18 @@
       <ion-menu content-id="main-content" type="overlay">
         <ion-content>
           <ion-list id="inbox-list">
-            <ion-list-header>Inbox</ion-list-header>
-            <ion-note>hi@ionicframework.com</ion-note>
+            <!-- Profile Header -->
+            <div>
+              <ion-header>{{ profile.name }}</ion-header>
+              <ion-note>{{ profile.phone }}</ion-note>
+              <ion-menu-toggle :auto-hide="false">
+                <ion-button :router-link="`/loyalty`">
+                  <!-- add crown icon -->
+                  <strong>{{ `${profile.points} Points` }}</strong>
+                  <!-- add right arrow icon -->
+                </ion-button>
+              </ion-menu-toggle>
+            </div>
 
             <ion-menu-toggle
               :auto-hide="false"
@@ -59,9 +69,11 @@
 <script setup lang="ts">
 import {
   IonApp,
+  IonButton,
   IonContent,
   IonIcon,
   IonItem,
+  IonHeader,
   IonLabel,
   IonList,
   IonListHeader,
@@ -70,6 +82,7 @@ import {
   IonNote,
   IonRouterOutlet,
   IonSplitPane,
+  IonToolbar,
 } from '@ionic/vue';
 import { ref } from 'vue';
 import {
@@ -129,6 +142,12 @@ const appPages = [
   },
 ];
 const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+
+const profile = {
+  name: 'Chou Tzuyu',
+  phone: '+63 912 345 6789',
+  points: 0,
+};
 
 const path = window.location.pathname.split('folder/')[1];
 if (path !== undefined) {
