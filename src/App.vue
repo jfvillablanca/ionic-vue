@@ -49,6 +49,7 @@
 </template>
 
 <script setup lang="ts">
+import { ProfileKey } from '@/symbols';
 import {
   IonApp,
   IonContent,
@@ -63,7 +64,7 @@ import {
   IonRouterOutlet,
   IonSplitPane,
 } from '@ionic/vue';
-import { ref } from 'vue';
+import { provide, ref } from 'vue';
 import {
   archiveOutline,
   archiveSharp,
@@ -122,6 +123,7 @@ const profile = {
   phone: '+63 912 345 6789',
   points: 0,
 };
+provide(ProfileKey, profile);
 
 const path = window.location.pathname.split('folder/')[1];
 if (path !== undefined) {
