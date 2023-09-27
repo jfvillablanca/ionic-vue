@@ -5,8 +5,8 @@ const config: CapacitorConfig = {
   appName: 'ionic-vue',
   webDir: 'dist',
   server: {
-    androidScheme: 'https'
-  }
+    androidScheme: 'https',
+  },
 };
 
 export default config;
