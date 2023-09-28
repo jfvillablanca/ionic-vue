@@ -20,6 +20,10 @@ const routes: Array<RouteRecordRaw> = [
     props: true,
   },
   {
+    path: '/checkout',
+    component: () => import('../views/CheckoutView.vue'),
+  },
+  {
     path: '/loyalty',
     component: () => import('../views/LoyaltyMainContent.vue'),
   },
