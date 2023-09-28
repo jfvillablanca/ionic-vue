@@ -22,7 +22,9 @@
         <h2>{{ menuItem.price }}</h2>
         <!-- insert qty  (+/-) buttons-->
 
-        <ion-button>Add to Bag</ion-button>
+        <ion-button @click="openModal">
+          Add to Bag
+        </ion-button>
       </div>
     </ion-content>
   </ion-page>
@@ -38,7 +40,9 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
+  modalController,
 } from '@ionic/vue';
+import { AddToCartModal } from '@/components';
 import { MenuItemArrayKey } from '@/symbols';
 import { MenuItem } from '@/types';
 import { inject } from 'vue';
@@ -59,6 +63,13 @@ if (menuItemData) {
   menuItem = menuItemData;
 } else {
   router.back();
+}
+
+async function openModal() {
+  const modal = await modalController.create({
+    component: AddToCartModal,
+  });
+  modal.present();
 }
 </script>
 
