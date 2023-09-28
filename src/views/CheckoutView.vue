@@ -1,11 +1,16 @@
 <template>
   <ion-page>
-    <ion-header :translucent="true">
+    <ion-header
+      :translucent="true"
+      class="ion-no-border"
+    >
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-back-button />
+          <ion-back-button text="" />
         </ion-buttons>
-        <ion-title>Order Summary</ion-title>
+        <ion-text>
+          <h1>Order Summary</h1>
+        </ion-text>
       </ion-toolbar>
     </ion-header>
 
@@ -94,7 +99,7 @@ import {
   IonPage,
   IonRadio,
   IonRadioGroup,
-  IonTitle,
+  IonText,
   IonToolbar,
   modalController,
 } from '@ionic/vue';

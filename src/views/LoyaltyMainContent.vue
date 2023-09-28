@@ -1,11 +1,14 @@
 <template>
   <ion-page>
-    <ion-header :translucent="true">
+    <ion-header
+      :translucent="true"
+      class="ion-no-border"
+    >
       <ion-toolbar>
         <ion-buttons slot="start">
           <ion-menu-button color="primary" />
         </ion-buttons>
-        <ion-title>Loyalty Points</ion-title>
+        <h1>Loyalty Points</h1>
       </ion-toolbar>
     </ion-header>
 
@@ -51,7 +54,6 @@ import {
   IonHeader,
   IonMenuButton,
   IonPage,
-  IonTitle,
   IonToolbar,
 } from '@ionic/vue';
 import { SectionHeader } from '@/components';

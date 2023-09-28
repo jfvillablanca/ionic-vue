@@ -1,12 +1,22 @@
 <template>
   <ion-page>
-    <ion-header :translucent="true">
+    <ion-header
+      :translucent="true"
+      class="ion-no-border"
+    >
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-back-button />
+          <ion-back-button text="" />
         </ion-buttons>
-        <ion-title>{{ menuItem.category }}</ion-title>
-        <!-- add cart button -->
+        <ion-text>
+          <h1>{{ menuItem.category }}</h1>
+        </ion-text>
+        <ion-button slot="end">
+          <ion-icon
+            slot="icon-only"
+            :icon="bagHandle"
+          />
+        </ion-button>
       </ion-toolbar>
     </ion-header>
 
@@ -38,10 +48,11 @@ import {
   IonContent,
   IonHeader,
   IonPage,
-  IonTitle,
+  IonText,
   IonToolbar,
   modalController,
 } from '@ionic/vue';
+import { bagHandle } from 'ionicons/icons';
 import { AddToCartModal } from '@/components';
 import { MenuItemArrayKey } from '@/symbols';
 import { MenuItem } from '@/types';
