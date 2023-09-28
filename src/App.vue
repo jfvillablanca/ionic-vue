@@ -48,6 +48,9 @@
 </template>
 
 <script setup lang="ts">
+// Hardcoded placeholder data
+import { profile, menuItems } from '../placeholders';
+
 import { PointsButton } from '@/components';
 import { ProfileKey, MenuItemArrayKey } from '@/symbols';
 import {
@@ -77,7 +80,6 @@ import {
   trashOutline,
   trashSharp,
 } from 'ionicons/icons';
-import { Profile, MenuItem } from './types';
 
 const selectedIndex = ref(0);
 const appPages = [
@@ -113,49 +115,8 @@ const appPages = [
   },
 ];
 
-// Hardcoded placeholder data
-const profile: Profile = {
-  firstName: 'Chou',
-  lastName: 'Tzuyu',
-  phone: '+63 912 345 6789',
-  points: 0,
-};
 const fullName = `${profile.firstName} ${profile.lastName}`;
 
-const menuItems: MenuItem[] = [
-  {
-    id: 1,
-    name: 'Steak Fries Veggies',
-    category: 'Meat',
-    price: 175,
-    rating: 4.5,
-    reward: {
-      tier: 'Beginner',
-      points: 20,
-    },
-  },
-  {
-    id: 2,
-    name: 'Chicken Salad',
-    category: 'Chicken',
-    price: 172,
-    rating: 4,
-  },
-  {
-    id: 3,
-    name: 'Sorvetes Primavera',
-    category: 'Dessert',
-    price: 185,
-    rating: 5,
-  },
-  {
-    id: 4,
-    name: 'Fried Chicken',
-    category: 'Chicken',
-    price: 175,
-    rating: 3.5,
-  },
-];
 provide(ProfileKey, profile);
 provide(MenuItemArrayKey, menuItems);
 

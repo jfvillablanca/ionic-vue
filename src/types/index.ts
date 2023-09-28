@@ -14,8 +14,9 @@ export const menuCategories = [
 ] as const;
 
 export type MenuItem = {
-  id: number;
+  id: string;
   name: string;
+  description: string;
   category: (typeof menuCategories)[number];
   price: number;
   rating: number;
