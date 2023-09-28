@@ -1,8 +1,20 @@
+type Address = {
+  type: 'work' | 'home';
+  streetName: string;
+  barangay?: string;
+  city: string;
+  zipCode: number;
+  country: string;
+  isDefault: boolean;
+};
+
 export type Profile = {
   firstName: string;
   lastName: string;
   phone: string;
   points: number;
+  email: string;
+  addresses: Address[];
 };
 
 export const menuCategories = [

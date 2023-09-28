@@ -5,6 +5,26 @@ export const profile: Profile = {
   lastName: 'Tzuyu',
   phone: '+63 912 345 6789',
   points: 0,
+  email: 'chou@email.com',
+  addresses: [
+    {
+      type: 'home',
+      streetName: 'No.21 St. Agustin Street',
+      barangay: 'Brgy. De Jose',
+      city: 'Delgado City',
+      zipCode: 2234,
+      country: 'Philippines',
+      isDefault: true,
+    },
+    {
+      type: 'work',
+      streetName: '3rd flr Anyeong Bldg. Seareal',
+      city: 'St. Joaquin City',
+      zipCode: 3456,
+      country: 'Philippines',
+      isDefault: false,
+    },
+  ],
 };
 
 export const menuItems: MenuItem[] = [
