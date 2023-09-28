@@ -15,6 +15,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/MenuMainContent.vue'),
   },
   {
+    path: '/menu/:id',
+    component: () => import('../views/MenuItemDetail.vue'),
+    props: true,
+  },
+  {
     path: '/loyalty',
     component: () => import('../views/LoyaltyMainContent.vue'),
   },

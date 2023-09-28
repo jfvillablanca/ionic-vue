@@ -1,5 +1,8 @@
 <template>
-  <div class="card">
+  <ion-card
+    :router-link="`/menu/${menuItem.id}`"
+    class="card"
+  >
     <figure>
       <!-- insert food image here -->
     </figure>
@@ -9,10 +12,11 @@
       <p>{{ `P ${menuItem.price}` }}</p>
       <!-- insert star render {menuItem.rating} -->
     </div>
-  </div>
+  </ion-card>
 </template>
 
 <script setup lang="ts">
+import { IonCard } from '@ionic/vue';
 import { MenuItem } from '@/types';
 
 const { menuItem } = defineProps<{
