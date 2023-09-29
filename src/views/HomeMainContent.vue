@@ -25,11 +25,7 @@
       :fullscreen="true"
     >
       <!-- greeting -->
-      <div>
-        <!-- add logo -->
-        <h2>Anneoyong, {{ profile?.firstName }}!</h2>
-        <h1>What do you want to eat?</h1>
-      </div>
+      <home-greeting />
 
       <!-- searchbar -->
       <custom-searchbar />
@@ -74,7 +70,12 @@ import {
   IonPage,
   IonToolbar,
 } from '@ionic/vue';
-import { CustomSearchbar, PointsButton, SectionHeader } from '@/components';
+import {
+  CustomSearchbar,
+  HomeGreeting,
+  PointsButton,
+  SectionHeader,
+} from '@/components';
 import { ProfileKey } from '@/symbols';
 import { inject } from 'vue';
 import { useRouter } from 'vue-router';
