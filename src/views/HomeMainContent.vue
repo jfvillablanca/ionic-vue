@@ -42,7 +42,7 @@
 
       <!-- what's new -->
       <section-header>What's New?</section-header>
-      <!-- add promotional banner -->
+      <home-whats-new />
 
       <!-- most popular -->
       <section-header>Most Popular</section-header>
@@ -75,6 +75,7 @@ import {
   HomeCategory,
   HomeGreeting,
   HomeSpecialOffers,
+  HomeWhatsNew,
   PointsButton,
   SectionHeader,
 } from '@/components';
