@@ -1,16 +1,18 @@
 <template>
-  <div :style="{ marginBlock: '2.4rem' }">
+  <section-header>What's New?</section-header>
+  <div class="main">
     <img :src="whatsNew">
   </div>
 </template>
 
 <script setup lang="ts">
 import { promotions } from '@/assets';
+import { SectionHeader } from '@/components';
 const { whatsNew } = promotions;
 </script>
 
 <style scoped>
-div {
+.main {
   width: 100%;
   margin-block: 2.4rem;
 }

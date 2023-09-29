@@ -1,5 +1,6 @@
 <template>
-  <div :style="{ marginBlock: '2.4rem' }">
+  <div>
+    <section-header>Category</section-header>
     <swiper
       :slides-per-view="'auto'"
       :space-between="10"
@@ -29,11 +30,15 @@ import { Pagination } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
 import { CategoryMetadataArrayKey } from '@/symbols';
 import { inject } from 'vue';
+import { SectionHeader } from '@/components';
 
 const categories = inject(CategoryMetadataArrayKey);
 </script>
 
 <style scoped>
+.swiper {
+  margin-top: 2.4rem;
+}
 .swiper-slide {
   position: relative;
   max-width: fit-content;

@@ -1,5 +1,8 @@
 <template>
-  <div :style="{ marginBlock: '0.8rem' }">
+  <div>
+    <section-header button-text="View All">
+      Special Offers!
+    </section-header>
     <swiper
       :slides-per-view="'auto'"
       :space-between="5"
@@ -18,6 +21,7 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination } from 'swiper/modules';
+import { SectionHeader } from '@/components';
 import 'swiper/swiper-bundle.css';
 
 import { promotions } from '@/assets';
@@ -26,6 +30,9 @@ const specialOffers = [specialOffer1, specialOffer2];
 </script>
 
 <style scoped>
+.swiper {
+  margin-top: 0.8rem;
+}
 .swiper-slide {
   width: 80%;
 }

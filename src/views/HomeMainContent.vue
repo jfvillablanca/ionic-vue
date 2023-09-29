@@ -31,17 +31,12 @@
       <custom-searchbar />
 
       <!-- special offers -->
-      <section-header button-text="View All">
-        Special Offers!
-      </section-header>
       <home-special-offers />
 
       <!-- category -->
-      <section-header>Category</section-header>
       <home-category />
 
       <!-- what's new -->
-      <section-header>What's New?</section-header>
       <home-whats-new />
 
       <!-- most popular -->
@@ -77,7 +72,6 @@ import {
   HomeSpecialOffers,
   HomeWhatsNew,
   PointsButton,
-  SectionHeader,
 } from '@/components';
 import { ProfileKey } from '@/symbols';
 import { inject } from 'vue';
