@@ -1,4 +1,6 @@
 import { Profile, MenuItem } from '../src/types';
+import { general } from '../src/assets';
+const { avatar } = general;
 
 export const profile: Profile = {
   firstName: 'Chou',
@@ -6,7 +8,7 @@ export const profile: Profile = {
   phone: '+63 912 345 6789',
   points: 0,
   email: 'chou@email.com',
-  image: 'https://i.pravatar.cc/500?img=66',
+  image: avatar,
   addresses: [
     {
       type: 'home',
