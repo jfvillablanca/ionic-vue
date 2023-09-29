@@ -16,10 +16,11 @@
       <div id="container">
         <div>
           <!-- add crown icon -->
-          <section-header
-            :header="`${tiers[0]} Tier`"
-            redirect-text="View All"
-          />
+          <section-header button-text="View All">
+            {{
+              `${tiers[0]} Tier`
+            }}
+          </section-header>
           <p>
             Lorem ipsum dolor sit amet, officia excepteur ex fugiat
             reprehenderit
@@ -28,10 +29,9 @@
 
         <!-- add progress wheel -->
 
-        <section-header
-          header="Rewards"
-          redirect-text="How it Works"
-        />
+        <section-header button-text="How it Works">
+          Rewards
+        </section-header>
 
         <div :style="{ display: 'flex', justifyContent: 'space-around' }">
           <button

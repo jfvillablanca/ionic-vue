@@ -19,16 +19,13 @@ const profile = inject(ProfileKey);
 </script>
 
 <style scoped>
-strong {
-  color: var(--ion-color-light-contrast);
-}
-
 span {
   font-size: 2rem;
   margin-right: 0.7rem;
 }
 
 strong {
+  color: var(--ion-color-light-contrast);
   text-transform: capitalize;
   margin-inline: 1rem;
 }

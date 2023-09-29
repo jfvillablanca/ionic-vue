@@ -31,22 +31,21 @@
       <custom-searchbar />
 
       <!-- special offers -->
-      <section-header
-        header="Special Offers!"
-        redirect-text="View All"
-      />
       <!-- add special offers card carousel -->
+      <section-header button-text="View All">
+        Special Offers!
+      </section-header>
 
       <!-- category -->
-      <section-header header="Category" />
+      <section-header>Category</section-header>
       <!-- add category card carousel -->
 
       <!-- what's new -->
-      <section-header header="What's New?" />
+      <section-header>What's New?</section-header>
       <!-- add promotional banner -->
 
       <!-- most popular -->
-      <section-header header="Most Popular" />
+      <section-header>Most Popular</section-header>
       <!-- add most popular card items -->
 
       <ion-button
