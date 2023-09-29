@@ -59,15 +59,13 @@
     --padding-button: 0.3rem;
     --border-radius-button: 1.4rem;
 
+    --ion-font-family: "Varela Round";
+
     font-size: 62.5%;
 }
 
 body {
     font-size: 1.6rem;
-}
-
-* {
-    font-family: "Varela Round";
 }
 
 h1 {
