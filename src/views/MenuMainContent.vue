@@ -23,7 +23,7 @@
     <ion-content :fullscreen="true">
       <div id="container">
         <!-- searchbar -->
-        <ion-searchbar :placeholder="`try our new ${menuItems[0].name}`" />
+        <custom-searchbar enable-filter />
 
         <!-- categories -->
         <ion-button
@@ -54,12 +54,11 @@ import {
   IonIcon,
   IonMenuButton,
   IonPage,
-  IonSearchbar,
   IonText,
   IonToolbar,
 } from '@ionic/vue';
 import { bagHandle } from 'ionicons/icons';
-import { MenuCardItem } from '@/components';
+import { CustomSearchbar, MenuCardItem } from '@/components';
 import { MenuItemArrayKey } from '@/symbols';
 import { menuCategories } from '@/types';
 import { inject } from 'vue';
