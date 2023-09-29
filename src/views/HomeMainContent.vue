@@ -53,6 +53,12 @@
       <section-header header="Most Popular" />
       <!-- add most popular card items -->
 
+      <ion-button
+        @click="router.push('/menu')"
+        class="cta"
+      >
+        Order Now!
+      </ion-button>
     </ion-content>
   </ion-page>
 </template>
@@ -60,6 +66,7 @@
 <script setup lang="ts">
 import {
   IonAvatar,
+  IonButton,
   IonButtons,
   IonContent,
   IonHeader,
@@ -70,30 +77,24 @@ import {
 import { CustomSearchbar, PointsButton, SectionHeader } from '@/components';
 import { ProfileKey } from '@/symbols';
 import { inject } from 'vue';
+import { useRouter } from 'vue-router';
 
 const profile = inject(ProfileKey);
-const food = ['Steak Fries Veggies'];
+const router = useRouter();
 </script>
 
 <style scoped>
-#container {
-  position: relative;
-  margin: 1rem;
-}
+ion-button.cta {
+  position: fixed;
+  right: 5%;
+  bottom: 10%;
+  font-size: 1.4rem;
+  font-weight: bolder;
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  color: #8c8c8c;
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+  --padding-top: 2rem;
+  --padding-bottom: 2rem;
+  --padding-start: 4rem;
+  --padding-end: 4rem;
+  --box-shadow: var(--ion-color-medium-tint) 2px 2px;
 }
 </style>
