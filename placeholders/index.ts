@@ -6,6 +6,7 @@ export const profile: Profile = {
   phone: '+63 912 345 6789',
   points: 0,
   email: 'chou@email.com',
+  image: 'https://i.pravatar.cc/500?img=66',
   addresses: [
     {
       type: 'home',

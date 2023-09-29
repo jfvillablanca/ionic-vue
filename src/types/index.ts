@@ -14,6 +14,7 @@ export type Profile = {
   phone: string;
   points: number;
   email: string;
+  image: string;
   addresses: Address[];
 };
 

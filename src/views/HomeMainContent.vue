@@ -9,7 +9,14 @@
           <ion-menu-button color="primary" />
         </ion-buttons>
         <points-button />
-        <!-- add profile avatar -->
+        <ion-buttons slot="end">
+          <ion-avatar>
+            <img
+              :alt="profile?.firstName"
+              :src="profile?.image"
+            >
+          </ion-avatar>
+        </ion-buttons>
       </ion-toolbar>
     </ion-header>
 
@@ -26,10 +33,7 @@
         <ion-searchbar :placeholder="`try our new ${food[0]}`" />
 
         <!-- special offers -->
-        <section-header
-          header="Special Offers!"
-          redirect-text="View All"
-        />
+        <section-header header="Special Offers!" redirect-text="View All" />
         <!-- add special offers card carousel -->
 
         <!-- category -->
@@ -50,6 +54,7 @@
 
 <script setup lang="ts">
 import {
+  IonAvatar,
   IonButtons,
   IonContent,
   IonHeader,
