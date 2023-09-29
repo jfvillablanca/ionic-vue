@@ -38,7 +38,7 @@
 
       <!-- category -->
       <section-header>Category</section-header>
-      <!-- add category card carousel -->
+      <home-category />
 
       <!-- what's new -->
       <section-header>What's New?</section-header>
@@ -71,6 +71,7 @@ import {
 } from '@ionic/vue';
 import {
   CustomSearchbar,
+  HomeCategory,
   HomeGreeting,
   HomeSpecialOffers,
   PointsButton,

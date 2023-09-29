@@ -5,3 +5,4 @@ export { default as AddToCartModal } from './AddToCartModal.vue';
 export { default as CustomSearchbar } from './CustomSearchbar.vue';
 export { default as HomeGreeting } from './HomeGreeting.vue';
 export { default as HomeSpecialOffers } from './HomeSpecialOffers.vue';
+export { default as HomeCategory } from './HomeCategory.vue';
