@@ -31,10 +31,10 @@
       <custom-searchbar />
 
       <!-- special offers -->
-      <!-- add special offers card carousel -->
       <section-header button-text="View All">
         Special Offers!
       </section-header>
+      <home-special-offers />
 
       <!-- category -->
       <section-header>Category</section-header>
@@ -72,6 +72,7 @@ import {
 import {
   CustomSearchbar,
   HomeGreeting,
+  HomeSpecialOffers,
   PointsButton,
   SectionHeader,
 } from '@/components';

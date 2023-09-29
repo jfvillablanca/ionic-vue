@@ -4,3 +4,4 @@ export { default as MenuCardItem } from './MenuCardItem.vue';
 export { default as AddToCartModal } from './AddToCartModal.vue';
 export { default as CustomSearchbar } from './CustomSearchbar.vue';
 export { default as HomeGreeting } from './HomeGreeting.vue';
+export { default as HomeSpecialOffers } from './HomeSpecialOffers.vue';
