@@ -26,6 +26,12 @@ export const menuCategories = [
   'Dessert',
 ] as const;
 
+export type CategoryMetaData = {
+  name: string;
+  image: string;
+  noOfRecipes: number;
+};
+
 export type MenuItem = {
   id: string;
   name: string;

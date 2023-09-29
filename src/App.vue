@@ -83,10 +83,14 @@
 
 <script setup lang="ts">
 // Hardcoded placeholder data
-import { profile, menuItems } from '../placeholders';
+import { categoriesMetaData, profile, menuItems } from '../placeholders';
 
 import { PointsButton } from '@/components';
-import { ProfileKey, MenuItemArrayKey } from '@/symbols';
+import {
+  ProfileKey,
+  MenuItemArrayKey,
+  CategoryMetadataArrayKey,
+} from '@/symbols';
 import {
   IonApp,
   IonAvatar,
@@ -175,6 +179,7 @@ const fullName = `${profile.firstName} ${profile.lastName}`;
 
 provide(ProfileKey, profile);
 provide(MenuItemArrayKey, menuItems);
+provide(CategoryMetadataArrayKey, categoriesMetaData);
 
 const path = window.location.pathname.split('folder/')[1];
 if (path !== undefined) {

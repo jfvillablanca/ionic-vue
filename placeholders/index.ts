@@ -1,5 +1,6 @@
-import { Profile, MenuItem } from '../src/types';
-import { general } from '../src/assets';
+import { Profile, MenuItem, CategoryMetaData } from '../src/types';
+import { category, general } from '../src/assets';
+const { dessert, meat } = category;
 const { avatar } = general;
 
 export const profile: Profile = {
@@ -71,4 +72,9 @@ export const menuItems: MenuItem[] = [
     price: 175,
     rating: 3.5,
   },
+];
+
+export const categoriesMetaData: CategoryMetaData[] = [
+  { name: 'dessert', image: dessert, noOfRecipes: 5 },
+  { name: 'meat', image: meat, noOfRecipes: 9 },
 ];
