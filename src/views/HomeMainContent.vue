@@ -50,6 +50,7 @@
 
       <ion-button
         @click="router.push('/menu')"
+        :style="{ zIndex: 9999 }"
         class="cta"
       >
         Order Now!
@@ -97,6 +98,6 @@ ion-button.cta {
   --padding-bottom: 2rem;
   --padding-start: 4rem;
   --padding-end: 4rem;
-  --box-shadow: var(--ion-color-medium-tint) 2px 2px;
+  --box-shadow: var(--ion-color-medium-shade) 1px 1px 2px;
 }
 </style>
