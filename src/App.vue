@@ -62,9 +62,7 @@
                   slot="end"
                   class="counter"
                 >
-                  {{
-                    p.counter
-                  }}
+                  {{ p.counter }}
                 </ion-note>
               </ion-item>
             </ion-menu-toggle>
@@ -110,20 +108,19 @@ import {
   fastFoodSharp,
   heartSharp,
   helpCircleSharp,
-  homeSharp,
   locationSharp,
   notificationsSharp,
   personSharp,
   storefrontSharp,
   timeSharp,
 } from 'ionicons/icons';
-
+import { logo } from '@/assets';
 const selectedIndex = ref(0);
 const appPages = [
   {
     title: 'Home',
     url: '/home',
-    icon: homeSharp,
+    icon: logo,
   },
   {
     title: 'Order Now!',
