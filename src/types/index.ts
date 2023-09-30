@@ -36,6 +36,7 @@ export type MenuItem = {
   id: string;
   name: string;
   description: string;
+  image: string;
   category: (typeof menuCategories)[number];
   price: number;
   rating: number;

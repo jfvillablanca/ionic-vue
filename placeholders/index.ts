@@ -1,6 +1,5 @@
 import { Profile, MenuItem, CategoryMetaData } from '../src/types';
-import { category, general } from '../src/assets';
-const { dessert, meat } = category;
+import { category, food, general } from '../src/assets';
 const { avatar } = general;
 
 export const profile: Profile = {
@@ -37,6 +36,7 @@ export const menuItems: MenuItem[] = [
     name: 'Steak Fries Veggies',
     description:
       'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim.',
+    image: food.steakFriesVeggies,
     category: 'Meat',
     price: 175,
     rating: 4.5,
@@ -50,6 +50,7 @@ export const menuItems: MenuItem[] = [
     name: 'Chicken Salad',
     description:
       'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim.',
+    image: food.chickenSalad,
     category: 'Chicken',
     price: 172,
     rating: 4,
@@ -59,6 +60,7 @@ export const menuItems: MenuItem[] = [
     name: 'Sorvetes Primavera',
     description:
       'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim.',
+    image: food.sorvetesPrimavera,
     category: 'Dessert',
     price: 185,
     rating: 5,
@@ -68,6 +70,7 @@ export const menuItems: MenuItem[] = [
     name: 'Fried Chicken',
     description:
       'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim.',
+    image: food.friedChicken,
     category: 'Chicken',
     price: 175,
     rating: 3.5,
