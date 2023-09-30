@@ -24,6 +24,7 @@ const profile = inject(ProfileKey);
 .greeting {
   display: flex;
   gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .greeting ion-icon.logo {

@@ -35,7 +35,7 @@ ion-searchbar {
 .searchbar {
   display: flex;
 
-  margin-block: 2rem;
+  margin-bottom: 2rem;
 
   border-radius: 1.6rem;
   box-shadow: inset 0 0 1px 1px var(--ion-color-medium-tint);
