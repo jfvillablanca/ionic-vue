@@ -18,7 +18,7 @@ import menu from './general/menu.svg';
 import notif from './general/notif.svg';
 
 import paypal from './payment/paypal.svg';
-import paynamics from './payment/paypal.svg';
+import paynamics from './payment/paynamics.svg';
 
 import whatsNew from './promotions/whats-new-1.png';
 import specialOffer1 from './promotions/special-offers-1.png';
