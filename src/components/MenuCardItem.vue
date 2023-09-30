@@ -1,31 +1,65 @@
 <template>
-  <ion-card
-    :router-link="`/menu/${menuItem.id}`"
-    class="card"
-  >
-    <figure>
-      <!-- insert food image here -->
-    </figure>
-    <h1>{{ menuItem.name }}</h1>
-    <h2>{{ menuItem.category }}</h2>
-    <div :style="{ display: 'flex' }">
-      <p>{{ `P ${menuItem.price}` }}</p>
-      <!-- insert star render {menuItem.rating} -->
+  <ion-card :router-link="`/menu/${menuItem.id}`">
+    <img
+      :src="menuItem.image"
+      :alt="menuItem.name"
+    >
+    <div class="texts">
+      <ion-card-title>{{ menuItem.name }}</ion-card-title>
+      <ion-card-subtitle>{{ menuItem.category }}</ion-card-subtitle>
+      <div class="price-rating">
+        <p>{{ `P ${menuItem.price}` }}</p>
+        <star-rating
+          v-model="rating"
+          :star-size="11"
+          :star-color="'#FFC02E'"
+          :inactive-color="'#676767'"
+          :disable-click="true"
+        />
+      </div>
     </div>
   </ion-card>
 </template>
 
 <script setup lang="ts">
-import { IonCard } from '@ionic/vue';
+import { IonCard, IonCardTitle, IonCardSubtitle } from '@ionic/vue';
+import StarRating from 'vue3-star-ratings';
 import { MenuItem } from '@/types';
 
 const { menuItem } = defineProps<{
   menuItem: MenuItem;
 }>();
+const rating = menuItem.rating;
 </script>
 
 <style scoped>
-.card {
-  display: 'flex';
+ion-card {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  --background: var(--ion-color-medium-tint);
+}
+
+.texts {
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.price-rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--ion-color-primary);
+}
+
+ion-card-title {
+  font-size: 1.4rem;
+}
+
+ion-card-subtitle {
+  font-size: 1.2rem;
+  text-transform: capitalize;
 }
 </style>
