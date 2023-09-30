@@ -14,56 +14,71 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content :fullscreen="true">
-      <div id="container">
-        <!-- Delivery Info -->
-        <ion-card>
+    <ion-content
+      class="ion-padding"
+      :fullscreen="true"
+    >
+      <!-- Delivery Info -->
+      <div class="card">
+        <div class="main">
           <h1>{{ fullName }}</h1>
           <p>{{ profile?.phone }}</p>
           <p>{{ profile?.email }}</p>
-          <!-- add ellipsis menu -->
-        </ion-card>
-        <ion-radio-group :value="true">
-          <ion-card
-            v-for="address in addresses"
-            :key="address.fullAddress"
-          >
-            <ion-radio :value="address.isDefault">
-              <div>
-                <h1>{{ address.header }}</h1>
-                <p>{{ address.fullAddress }}</p>
-              </div>
-            </ion-radio>
-            <!-- add ellipsis menu -->
-          </ion-card>
-        </ion-radio-group>
-
-        <!-- Orders -->
-        <section-header header="Orders" />
-        <!-- insert order cards -->
-
-        <!-- Payment Options -->
-        <section-header header="Payment Option" />
-        <ion-radio-group value="cod">
-          <ion-card
-            v-for="option in paymentOptions"
-            :key="option.value"
-          >
-            <ion-radio :value="option.value">
-              <h1>{{ option.name }}</h1>
-              <p>{{ option.description }}</p>
-            </ion-radio>
-          </ion-card>
-        </ion-radio-group>
-
-        <div>
-          <h3>Subtotal</h3>
-          <h3>P 185</h3>
         </div>
-        <div>
-          <h3>Delivery Charge</h3>
-          <h3>P 59</h3>
+      </div>
+      <!-- add ellipsis menu -->
+
+      <div
+        class="card"
+        v-for="address in addresses"
+        :key="address.fullAddress"
+      >
+        <div class="main">
+          <h1>{{ address.header }}</h1>
+          <p>{{ address.fullAddress }}</p>
         </div>
+        <input
+          type="radio"
+          :checked="address.isDefault"
+        >
+      </div>
+
+      <!-- Orders -->
+      <section-header class="section-header">
+        Orders
+      </section-header>
+      <checkout-order-card
+        v-for="orderedItem in orderList"
+        :ordered-item="orderedItem"
+        :key="orderedItem.item.name"
+      />
+
+      <!-- Payment Options -->
+      <section-header class="section-header">
+        Payment Option
+      </section-header>
+      <div
+        class="card"
+        v-for="option in paymentOptions"
+        :key="option.value"
+      >
+        <div class="main">
+          <h1>{{ option.name }}</h1>
+          <p>{{ option.description }}</p>
+        </div>
+        <input
+          type="radio"
+          :checked="option.value === 'cod'"
+        >
+      </div>
+
+      <div>
+        <h3>Subtotal</h3>
+        <h3>P 185</h3>
+      </div>
+      <div>
+        <h3>Delivery Charge</h3>
+        <h3>P 59</h3>
       </div>
 
       <!-- supposed to be conditionally rendered iff 'cod' -->
@@ -86,25 +101,24 @@
 </template>
 
 <script setup lang="ts">
+// placeholder data
+import { orderedItems } from '../../placeholders';
 import { ProfileKey } from '@/symbols';
-import { SectionHeader } from '@/components';
+import { CheckoutOrderCard, SectionHeader } from '@/components';
 import {
   IonBackButton,
   IonButtons,
-  IonCard,
   IonContent,
   IonFooter,
   IonInput,
   IonHeader,
   IonPage,
-  IonRadio,
-  IonRadioGroup,
   IonText,
   IonToolbar,
   modalController,
 } from '@ionic/vue';
 import { inject } from 'vue';
-import SuccessCheckoutModalVue from '@/components/SuccessCheckoutModal.vue';
+import { SuccessCheckoutModal } from '@/components';
 
 const profile = inject(ProfileKey);
 const fullName = `${profile?.firstName} ${profile?.lastName}`;
@@ -118,7 +132,7 @@ const addresses = profile?.addresses.map((address) => ({
 
 async function openModal() {
   const modal = await modalController.create({
-    component: SuccessCheckoutModalVue,
+    component: SuccessCheckoutModal,
   });
   modal.present();
 }
@@ -145,9 +159,61 @@ const paymentOptions = [
     description: 'Chose paynamics services available from you',
   },
 ];
+
+const orderList = orderedItems.map((orderedItem) => {
+  const itemSubtotal = orderedItem.item.price * orderedItem.quantity;
+  const extrasSubtotal = orderedItem.extras.reduce(
+    (cur, acc) => cur + acc.quantity * acc.unitPrice,
+    0,
+  );
+  return { ...orderedItem, subtotal: itemSubtotal + extrasSubtotal };
+});
 </script>
 
 <style lang="scss" scoped>
+.section-header {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.card {
+  margin: 0;
+  margin-bottom: 0.8rem;
+  padding: 1.5rem;
+  border-radius: var(--border-radius-button);
+
+  display: flex;
+
+  background: var(--ion-color-medium-tint);
+
+  color: var(--ion-color-light-contrast);
+  * {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  input[type='radio'] {
+    max-height: fit-content;
+    align-self: start;
+  }
+
+  p,
+  h1 {
+    margin-top: 0;
+  }
+  p {
+    margin-bottom: 0.2rem;
+    font-weight: 400;
+    color: var(--ion-color-medium-shade);
+  }
+}
+
 ion-footer {
   background-color: var(--ion-color-light);
 
