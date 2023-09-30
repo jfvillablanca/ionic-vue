@@ -40,8 +40,7 @@
       <home-whats-new />
 
       <!-- most popular -->
-      <section-header>Most Popular</section-header>
-      <!-- add most popular card items -->
+      <home-most-popular />
 
       <ion-button
         @click="router.push('/menu')"
@@ -69,6 +68,7 @@ import {
   CustomSearchbar,
   HomeCategory,
   HomeGreeting,
+  HomeMostPopular,
   HomeSpecialOffers,
   HomeWhatsNew,
   PointsButton,
