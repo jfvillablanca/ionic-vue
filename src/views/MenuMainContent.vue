@@ -20,26 +20,22 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content :fullscreen="true">
-      <div id="container">
-        <!-- searchbar -->
-        <custom-searchbar enable-filter />
+    <ion-content
+      class="ion-padding"
+      :fullscreen="true"
+    >
+      <!-- searchbar -->
+      <custom-searchbar enable-filter />
 
-        <!-- categories -->
-        <ion-button
-          v-for="category in menuCategories"
-          :key="category"
-        >
-          {{ category }}
-        </ion-button>
+      <!-- categories -->
+      <category-button-swiper />
 
-        <div class="menu-cards">
-          <menu-card-item
-            v-for="item in menuItems"
-            :key="item.name"
-            :menu-item="item"
-          />
-        </div>
+      <div class="menu-cards">
+        <menu-card-item
+          v-for="item in menuItems"
+          :key="item.name"
+          :menu-item="item"
+        />
       </div>
     </ion-content>
   </ion-page>
@@ -58,38 +54,22 @@ import {
   IonToolbar,
 } from '@ionic/vue';
 import { bagHandle } from 'ionicons/icons';
-import { CustomSearchbar, MenuCardItem } from '@/components';
+import {
+  CategoryButtonSwiper,
+  CustomSearchbar,
+  MenuCardItem,
+} from '@/components';
 import { MenuItemArrayKey } from '@/symbols';
-import { menuCategories } from '@/types';
 import { inject } from 'vue';
 
 const menuItems = inject(MenuItemArrayKey) ?? [];
 </script>
 
 <style scoped>
-#container {
-  position: relative;
-  margin: 1rem;
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  color: #8c8c8c;
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
-
 .menu-cards {
+  margin-top: 2.4rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 </style>
