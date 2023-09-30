@@ -73,10 +73,10 @@
         placeholder="1000"
       />
     </ion-content>
-    <ion-footer>
+    <ion-footer class="ion-no-border ion-padding">
       <div>
-        <p>Grand Total</p>
-        <p>P 244</p>
+        <h2>Grand Total</h2>
+        <h1>P 244</h1>
       </div>
       <ion-button @click="openModal">
         Place Order
@@ -147,30 +147,32 @@ const paymentOptions = [
 ];
 </script>
 
-<style scoped>
-#container {
-  position: relative;
-  margin: 1rem;
-}
+<style lang="scss" scoped>
+ion-footer {
+  background-color: var(--ion-color-light);
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
+  display: flex;
+  justify-content: space-between;
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  color: #8c8c8c;
-  margin: 0;
-}
+  * {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
 
-#container a {
-  text-decoration: none;
-}
+  h1,
+  h2 {
+    margin-top: 0;
+  }
 
-.menu-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    color: var(--ion-color-medium-shade);
+  }
+
+  ion-button {
+    width: 60%;
+  }
 }
 </style>
