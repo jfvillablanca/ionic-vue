@@ -9,13 +9,7 @@
       <ion-card-subtitle>{{ menuItem.category }}</ion-card-subtitle>
       <div class="price-rating">
         <p>{{ `P ${menuItem.price}` }}</p>
-        <star-rating
-          v-model="rating"
-          :star-size="11"
-          :star-color="'#FFC02E'"
-          :inactive-color="'#676767'"
-          :disable-click="true"
-        />
+        <custom-star-rating :rating="rating" />
       </div>
     </div>
   </ion-card>
@@ -23,7 +17,7 @@
 
 <script setup lang="ts">
 import { IonCard, IonCardTitle, IonCardSubtitle } from '@ionic/vue';
-import StarRating from 'vue3-star-ratings';
+import { CustomStarRating } from '@/components';
 import { MenuItem } from '@/types';
 
 const { menuItem } = defineProps<{
