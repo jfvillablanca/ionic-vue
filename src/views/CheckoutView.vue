@@ -63,7 +63,24 @@
         :key="option.value"
       >
         <div class="main">
-          <h1>{{ option.name }}</h1>
+          <img
+            v-if="option.image"
+            class="payment-option-image"
+            :src="option.image"
+            :alt="option.name"
+          >
+          <h1
+            v-else
+            :style="{}"
+          >
+            {{ option.name }}
+            <span
+              v-if="option.points !== undefined"
+              :style="{ color: 'var(--ion-color-primary)' }"
+            >
+              ({{ option.points }} points)
+            </span>
+          </h1>
           <p>{{ option.description }}</p>
         </div>
         <input
@@ -72,21 +89,25 @@
         >
       </div>
 
-      <div>
+      <div class="total-and-delivery">
         <h3>Subtotal</h3>
         <h3>P 185</h3>
       </div>
-      <div>
+      <div class="total-and-delivery">
         <h3>Delivery Charge</h3>
         <h3>P 59</h3>
       </div>
 
       <!-- supposed to be conditionally rendered iff 'cod' -->
-      <ion-input
-        label="Change for"
-        label-placement="stacked"
-        placeholder="1000"
-      />
+      <div class="cod-change">
+        <ion-input
+          :size="20"
+          type="number"
+          label="Change for"
+          label-placement="stacked"
+          placeholder="e.g. 1000"
+        />
+      </div>
     </ion-content>
     <ion-footer class="ion-no-border ion-padding">
       <div>
@@ -103,8 +124,14 @@
 <script setup lang="ts">
 // placeholder data
 import { orderedItems } from '../../placeholders';
+
+import { payment } from '@/assets';
 import { ProfileKey } from '@/symbols';
-import { CheckoutOrderCard, SectionHeader } from '@/components';
+import {
+  CheckoutOrderCard,
+  SectionHeader,
+  SuccessCheckoutModal,
+} from '@/components';
 import {
   IonBackButton,
   IonButtons,
@@ -118,7 +145,6 @@ import {
   modalController,
 } from '@ionic/vue';
 import { inject } from 'vue';
-import { SuccessCheckoutModal } from '@/components';
 
 const profile = inject(ProfileKey);
 const fullName = `${profile?.firstName} ${profile?.lastName}`;
@@ -146,17 +172,20 @@ const paymentOptions = [
   {
     value: 'loyalty',
     name: 'Loyalty Points',
+    points: 0,
     description: 'Pay using your earned loyalty points',
   },
   {
     value: 'paypal',
     name: 'Paypal',
+    image: payment.paypal,
     description: 'A new tab will open to access your account',
   },
   {
     value: 'paynamics',
     name: 'Paynamics',
-    description: 'Chose paynamics services available from you',
+    image: payment.paynamics,
+    description: 'Choose paynamics services available from you',
   },
 ];
 
@@ -211,6 +240,40 @@ const orderList = orderedItems.map((orderedItem) => {
     margin-bottom: 0.2rem;
     font-weight: 400;
     color: var(--ion-color-medium-shade);
+  }
+
+  .payment-option-image {
+    width: 10rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.total-and-delivery {
+  display: flex;
+  justify-content: space-between;
+
+  h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.2rem;
+    font-weight: bold;
+  }
+}
+
+.cod-change {
+  background-color: var(--ion-color-medium-tint);
+  border-radius: 1.6rem;
+  border-color: var(--ion-color-light-contrast);
+
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+
+  font-size: 1.9rem;
+  ion-input {
+    // --background: var(--ion-color-light);
+    --color: var(--ion-color-light-contrast);
+
+    --placeholder-color: var(--ion-color-light-contrast);
+    --placeholder-opacity: 0.4;
   }
 }
 
