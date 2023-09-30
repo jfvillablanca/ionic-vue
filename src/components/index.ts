@@ -3,7 +3,7 @@ export { default as SectionHeader } from './SectionHeader.vue';
 export { default as MenuCardItem } from './MenuCardItem.vue';
 export { default as MenuCardQuantityCounter } from './MenuCardQuantityCounter.vue';
 export { default as CategoryButtonSwiper } from './CategoryButtonSwiper.vue';
-export { default as AddToCartModal } from './AddToCartModal.vue';
+export { default as AddToCartPopover } from './AddToCartPopover.vue';
 export { default as CustomSearchbar } from './CustomSearchbar.vue';
 export { default as CustomStarRating } from './CustomStarRating.vue';
 export { default as HomeGreeting } from './HomeGreeting.vue';

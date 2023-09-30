@@ -64,7 +64,7 @@
 
       <ion-button
         class="cta"
-        @click="openModal"
+        @click="openPopover"
       >
         Add to Bag
       </ion-button>
@@ -83,11 +83,11 @@ import {
   IonPage,
   IonText,
   IonToolbar,
-  modalController,
+  popoverController,
 } from '@ionic/vue';
 import { bagHandle } from 'ionicons/icons';
 import {
-  AddToCartModal,
+  AddToCartPopover,
   CustomStarRating,
   MenuCardQuantityCounter,
 } from '@/components';
@@ -116,11 +116,12 @@ if (menuItemData) {
   router.back();
 }
 
-async function openModal() {
-  const modal = await modalController.create({
-    component: AddToCartModal,
+async function openPopover() {
+  const popover = await popoverController.create({
+    component: AddToCartPopover,
+    backdropDismiss: false,
   });
-  modal.present();
+  popover.present();
 }
 
 const { heart } = general;
