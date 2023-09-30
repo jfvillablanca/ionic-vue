@@ -41,6 +41,7 @@ div {
     place-items: center;
 
     border-radius: var(--border-radius-button);
+    background-color: var(--ion-color-light-shade);
     height: 3.5rem;
     width: 3.5rem;
 

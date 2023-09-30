@@ -17,9 +17,7 @@
         <div>
           <!-- add crown icon -->
           <section-header button-text="View All">
-            {{
-              `${tiers[0]} Tier`
-            }}
+            {{ `${tiers[0]} Tier` }}
           </section-header>
           <p>
             Lorem ipsum dolor sit amet, officia excepteur ex fugiat
