@@ -45,3 +45,13 @@ export type MenuItem = {
     points: number;
   };
 };
+
+export type OrderedItem = {
+  item: MenuItem;
+  quantity: number;
+  extras: {
+    name: string;
+    quantity: number;
+    unitPrice: number;
+  }[];
+};

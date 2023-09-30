@@ -1,4 +1,4 @@
-import { Profile, MenuItem, CategoryMetaData } from '../src/types';
+import { Profile, MenuItem, CategoryMetaData, OrderedItem } from '../src/types';
 import { category, food, general } from '../src/assets';
 const { avatar } = general;
 
@@ -74,6 +74,18 @@ export const menuItems: MenuItem[] = [
     category: 'Chicken',
     price: 175,
     rating: 3.5,
+  },
+];
+
+export const orderedItems: OrderedItem[] = [
+  {
+    item: menuItems[0],
+    quantity: 1,
+    extras: [
+      { name: 'Tomato Sauce', quantity: 1, unitPrice: 20 },
+      { name: 'Regular Coke', quantity: 1, unitPrice: 40 },
+      { name: 'Fried Chicken', quantity: 1, unitPrice: 120 },
+    ],
   },
 ];
 
