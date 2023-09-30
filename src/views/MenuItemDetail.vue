@@ -20,22 +20,54 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content :fullscreen="true">
-      <div id="container">
-        <!-- image here -->
-
-        <h1>{{ menuItem.name }}</h1>
-        <!-- insert star render {menuItem.rating} -->
-
-        <p>{{ menuItem.description }}</p>
-
-        <h2>{{ menuItem.price }}</h2>
-        <!-- insert qty  (+/-) buttons-->
-
-        <ion-button @click="openModal">
-          Add to Bag
-        </ion-button>
+    <ion-content
+      class="ion-padding"
+      :style="{ position: 'relative' }"
+      :fullscreen="true"
+    >
+      <!-- item image -->
+      <div class="menu-item-image-container">
+        <img
+          :src="menuItem.image"
+          :alt="menuItem.name"
+        >
+        <button>
+          <ion-icon :icon="heart" />
+        </button>
       </div>
+
+      <!-- item name -->
+      <h1 class="menu-item-name">
+        {{ menuItem.name }}
+      </h1>
+
+      <!-- item star rating -->
+      <custom-star-rating
+        :rating="menuItem.rating"
+        :star-size="18"
+      />
+
+      <!-- item description -->
+      <p class="menu-item-description">
+        {{ menuItem.description }}
+      </p>
+
+      <!-- item price and qty -->
+      <div class="menu-item-price-and-qty">
+        <p>P {{ menuItem.price }}</p>
+        <!-- insert qty  (+/-) buttons-->
+        <menu-card-quantity-counter
+          :initial-quantity="1"
+          @update:quantity="(newQty) => (orderQuantity = newQty)"
+        />
+      </div>
+
+      <ion-button
+        class="cta"
+        @click="openModal"
+      >
+        Add to Bag
+      </ion-button>
     </ion-content>
   </ion-page>
 </template>
@@ -46,6 +78,7 @@ import {
   IonButton,
   IonButtons,
   IonContent,
+  IonIcon,
   IonHeader,
   IonPage,
   IonText,
@@ -53,11 +86,18 @@ import {
   modalController,
 } from '@ionic/vue';
 import { bagHandle } from 'ionicons/icons';
-import { AddToCartModal } from '@/components';
+import {
+  AddToCartModal,
+  CustomStarRating,
+  MenuCardQuantityCounter,
+} from '@/components';
 import { MenuItemArrayKey } from '@/symbols';
 import { MenuItem } from '@/types';
-import { inject } from 'vue';
+import { general } from '@/assets';
+import { ref, inject } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+
+const orderQuantity = ref(1);
 
 const route = useRoute();
 const router = useRouter();
@@ -82,32 +122,84 @@ async function openModal() {
   });
   modal.present();
 }
+
+const { heart } = general;
 </script>
 
-<style scoped>
-#container {
+<style lang="scss" scoped>
+* {
+  --cta-min-height: 5rem;
+  --cta-margin-bottom: 2rem;
+}
+
+ion-content {
+  --padding-bottom: calc(var(--cta-min-height) + var(--cta-margin-bottom));
+}
+
+.menu-item-image-container {
   position: relative;
-  margin: 1rem;
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  background-color: var(--ion-color-medium);
+  border-radius: var(--border-radius-button);
+
+  img {
+    width: 70%;
+  }
+
+  button {
+    position: absolute;
+    bottom: -2rem;
+    right: 2rem;
+
+    display: grid;
+    width: 5rem;
+    height: 5rem;
+    place-items: center;
+    padding: 1rem;
+
+    background-color: var(--ion-color-light-tint);
+    border-radius: var(--border-radius-button);
+    box-shadow: var(--ion-color-medium-shade) 1px 1px 2px;
+
+    ion-icon {
+      height: 80%;
+      width: 80%;
+    }
+  }
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.menu-item-name {
+  font-size: 2rem;
+  font-weight: 700;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  color: #8c8c8c;
-  margin: 0;
+.menu-item-description {
+  font-weight: 400;
+  color: var(--ion-color-medium-shade);
 }
 
-#container a {
-  text-decoration: none;
+.menu-item-price-and-qty {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--ion-color-primary);
 }
 
-.menu-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+ion-button.cta {
+  position: fixed;
+  bottom: 0;
+  width: 92vw;
+
+  min-height: var(--cta-min-height);
+  margin-bottom: var(--cta-margin-bottom);
+
+  font-weight: bold;
 }
 </style>
