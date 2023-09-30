@@ -50,6 +50,12 @@ div {
     font-weight: bold;
   }
 
+  img {
+    margin-top: 1rem;
+
+    max-height: 7rem;
+  }
+
   h2 {
     margin-top: 0.5rem;
     margin-bottom: 2rem;
