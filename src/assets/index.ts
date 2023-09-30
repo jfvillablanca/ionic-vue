@@ -12,6 +12,7 @@ import dessert from './categories/dessert.png';
 
 import avatar from './general/avatar.png';
 import crown from './general/crown.svg';
+import heart from './general/heart.svg';
 import thumbsUp from './general/thumbs-up.png';
 import menu from './general/menu.svg';
 import notif from './general/notif.svg';
@@ -37,6 +38,7 @@ export const category = {
 export const general = {
   avatar,
   crown,
+  heart,
   menu,
   notif,
   thumbsUp,
