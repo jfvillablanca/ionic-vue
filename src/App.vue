@@ -3,14 +3,14 @@
     <ion-split-pane content-id="main-content">
       <ion-menu
         content-id="main-content"
-        type="overlay"
+        type="push"
       >
         <ion-content>
           <ion-list>
             <!-- Profile Header -->
             <ion-item
+              class="profile-header"
               lines="none"
-              :style="{ '--padding-bottom': '1.7rem' }"
             >
               <div>
                 <div class="sidebar-header-buttons">
@@ -53,7 +53,7 @@
                   aria-hidden="true"
                   slot="start"
                   size="small"
-                  :color="i === 0 ? 'primary' : 'medium'"
+                  :color="i === 0 || selectedIndex === i ? 'primary' : 'medium'"
                   :icon="p.icon"
                 />
                 <ion-label>{{ p.title }}</ion-label>
@@ -189,26 +189,35 @@ if (path !== undefined) {
 }
 </script>
 
-<style scoped>
-.sidebar-header-buttons {
-  display: flex;
-  align-items: center;
-}
+<style lang="scss" scoped>
+.profile-header {
+  --padding-bottom: 1.7rem;
 
-.sidebar-header-buttons ion-avatar {
-  margin-right: 1rem;
-  margin-block: 1rem;
-}
+  .sidebar-header-buttons {
+    display: flex;
+    align-items: center;
 
-.sidebar-header-buttons ion-menu-toggle {
-  flex: 1;
-  display: grid;
-  place-items: center;
-}
+    ion-avatar {
+      margin-right: 1rem;
+      margin-block: 1rem;
+      height: 7rem;
+      width: 7rem;
+    }
 
-ion-header {
-  font-size: 2.3rem;
-  font-weight: 900;
+    ion-menu-toggle {
+      flex: 1;
+      display: grid;
+      place-items: center;
+    }
+  }
+  ion-header {
+    font-size: 2.7rem;
+    font-weight: 900;
+  }
+
+  ion-note {
+    font-size: 1.5rem;
+  }
 }
 
 ion-note {
@@ -225,12 +234,12 @@ ion-list {
   flex: 1;
   align-items: end;
   --min-height: 70%;
-}
 
-.logout ion-button::part(native) {
-  --border-radius: 1.6rem;
-  padding: 1.7rem 5rem;
-  font-weight: bold;
+  ion-button::part(native) {
+    --border-radius: 1.6rem;
+    padding: 1.7rem 5rem;
+    font-weight: bold;
+  }
 }
 
 .counter {

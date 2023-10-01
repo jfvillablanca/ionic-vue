@@ -79,6 +79,54 @@ export const menuItems: MenuItem[] = [
     price: 175,
     rating: 3.5,
   },
+  {
+    id: '1',
+    name: 'Not another Steak Fries Veggies',
+    description:
+      'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim.',
+    image: food.steakFriesVeggies,
+    category: 'Meat',
+    price: 175,
+    rating: 4.5,
+    reward: {
+      tier: 'Beginner',
+      points: 20,
+    },
+  },
+  {
+    id: '2',
+    name: 'Not another Chicken Salad',
+    description:
+      'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim.',
+    image: food.chickenSalad,
+    category: 'Chicken',
+    price: 172,
+    rating: 4,
+  },
+  {
+    id: '3',
+    name: 'Not another Sorvetes Primavera',
+    description:
+      'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim.',
+    image: food.sorvetesPrimavera,
+    category: 'Dessert',
+    price: 185,
+    rating: 5,
+    reward: {
+      tier: 'Intermediate',
+      points: 30,
+    },
+  },
+  {
+    id: '4',
+    name: 'Not another Fried Chicken',
+    description:
+      'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim.',
+    image: food.friedChicken,
+    category: 'Chicken',
+    price: 175,
+    rating: 3.5,
+  },
 ];
 
 export const orderedItems: OrderedItem[] = [
@@ -94,6 +142,9 @@ export const orderedItems: OrderedItem[] = [
 ];
 
 export const categoriesMetaData: CategoryMetaData[] = [
-  { name: 'dessert', image: dessert, noOfRecipes: 5 },
-  { name: 'meat', image: meat, noOfRecipes: 9 },
+  { name: 'dessert', image: category.dessert, noOfRecipes: 5 },
+  { name: 'meat', image: category.meat, noOfRecipes: 9 },
+  { name: 'seafood', image: category.dessert, noOfRecipes: 5 },
+  { name: 'chicken', image: category.meat, noOfRecipes: 9 },
+  { name: 'breakfast', image: category.dessert, noOfRecipes: 9 },
 ];

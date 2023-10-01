@@ -39,7 +39,7 @@ ion-searchbar {
 
   border-radius: 1.6rem;
   box-shadow: inset 0 0 1px 1px var(--ion-color-medium-tint);
-  background-color: var(--ion-color-light-shade);
+  background-color: #f8f9fa;
 }
 
 .searchbar ion-searchbar.override {
