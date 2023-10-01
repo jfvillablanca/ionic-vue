@@ -3,7 +3,10 @@
     fill="clear"
     :router-link="`/loyalty`"
   >
-    <span>👑</span>
+    <img
+      :src="crown"
+      alt="crown"
+    >
     <strong>{{ `${profile?.points ?? 0} Points` }}</strong>
     <ion-icon :icon="chevronForwardOutline" />
   </ion-button>
@@ -14,6 +17,8 @@ import { IonButton, IonIcon } from '@ionic/vue';
 import { ProfileKey } from '@/symbols';
 import { inject } from 'vue';
 import { chevronForwardOutline } from 'ionicons/icons';
+import { general } from '@/assets';
+const { crown } = general;
 
 const profile = inject(ProfileKey);
 </script>
@@ -25,8 +30,11 @@ span {
 }
 
 strong {
-  color: var(--ion-color-light-contrast);
+  margin-right: 1rem;
+  margin-left: 3rem;
+
   text-transform: capitalize;
-  margin-inline: 1rem;
+  color: var(--ion-color-light-contrast);
+  font-size: 1.6rem;
 }
 </style>
