@@ -4,12 +4,9 @@
       :translucent="true"
       class="ion-no-border"
     >
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button color="primary" />
-        </ion-buttons>
+      <view-header :is-notif="isNotif">
         <h1>Loyalty Points</h1>
-      </ion-toolbar>
+      </view-header>
     </ion-header>
 
     <ion-content
@@ -71,16 +68,8 @@
 </template>
 
 <script setup lang="ts">
-import {
-  IonButton,
-  IonButtons,
-  IonContent,
-  IonHeader,
-  IonMenuButton,
-  IonPage,
-  IonToolbar,
-} from '@ionic/vue';
-import { LoyaltyCardItem, SectionHeader } from '@/components';
+import { IonButton, IonContent, IonHeader, IonPage } from '@ionic/vue';
+import { LoyaltyCardItem, SectionHeader, ViewHeader } from '@/components';
 import { inject, ref } from 'vue';
 import { general } from '@/assets';
 import { MenuItemArrayKey } from '@/symbols';
@@ -91,6 +80,7 @@ const selectedTier = ref('All');
 // placeholders
 const menuItems = inject(MenuItemArrayKey);
 const rewardItems = menuItems?.filter((item) => item.reward);
+const isNotif = true;
 </script>
 
 <style lang="scss" scoped>

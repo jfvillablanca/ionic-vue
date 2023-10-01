@@ -4,20 +4,19 @@
       :translucent="true"
       class="ion-no-border"
     >
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button color="primary" />
-        </ion-buttons>
-        <points-button />
-        <ion-buttons slot="end">
-          <ion-avatar>
-            <img
-              :alt="profile?.firstName"
-              :src="profile?.image"
-            >
-          </ion-avatar>
-        </ion-buttons>
-      </ion-toolbar>
+      <view-header :is-notif="isNotif">
+        <div class="header-slot">
+          <points-button />
+          <ion-buttons slot="end">
+            <ion-avatar>
+              <img
+                :alt="profile?.firstName"
+                :src="profile?.image"
+              >
+            </ion-avatar>
+          </ion-buttons>
+        </div>
+      </view-header>
     </ion-header>
 
     <ion-content
@@ -60,9 +59,7 @@ import {
   IonButtons,
   IonContent,
   IonHeader,
-  IonMenuButton,
   IonPage,
-  IonToolbar,
 } from '@ionic/vue';
 import {
   CustomSearchbar,
@@ -72,6 +69,7 @@ import {
   HomeSpecialOffers,
   HomeWhatsNew,
   PointsButton,
+  ViewHeader,
 } from '@/components';
 import { ProfileKey } from '@/symbols';
 import { inject } from 'vue';
@@ -79,9 +77,17 @@ import { useRouter } from 'vue-router';
 
 const profile = inject(ProfileKey);
 const router = useRouter();
+
+// placeholders
+const isNotif = true;
 </script>
 
 <style scoped>
+.header-slot {
+  display: flex;
+  justify-content: space-between;
+}
+
 ion-button.cta {
   position: fixed;
   right: 5%;

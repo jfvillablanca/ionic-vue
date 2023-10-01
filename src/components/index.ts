@@ -14,3 +14,4 @@ export { default as MenuCardQuantityCounter } from './MenuCardQuantityCounter.vu
 export { default as PointsButton } from './PointsButton.vue';
 export { default as SectionHeader } from './SectionHeader.vue';
 export { default as SuccessCheckoutModal } from './SuccessCheckoutModal.vue';
+export { default as ViewHeader } from './ViewHeader.vue';

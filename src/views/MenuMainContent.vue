@@ -4,20 +4,19 @@
       :translucent="true"
       class="ion-no-border"
     >
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button color="primary" />
-        </ion-buttons>
-        <ion-text>
-          <h1>Our Foods</h1>
-        </ion-text>
-        <ion-button slot="end">
-          <ion-icon
-            slot="icon-only"
-            :icon="bagHandle"
-          />
-        </ion-button>
-      </ion-toolbar>
+      <view-header :is-notif="isNotif">
+        <div class="header-slot">
+          <ion-text>
+            <h1>Our Foods</h1>
+          </ion-text>
+          <ion-button slot="end">
+            <ion-icon
+              slot="icon-only"
+              :icon="bagHandle"
+            />
+          </ion-button>
+        </div>
+      </view-header>
     </ion-header>
 
     <ion-content
@@ -44,28 +43,33 @@
 <script setup lang="ts">
 import {
   IonButton,
-  IonButtons,
   IonContent,
   IonHeader,
   IonIcon,
-  IonMenuButton,
   IonPage,
   IonText,
-  IonToolbar,
 } from '@ionic/vue';
 import { bagHandle } from 'ionicons/icons';
 import {
   CategoryButtonSwiper,
   CustomSearchbar,
   MenuCardItem,
+  ViewHeader,
 } from '@/components';
 import { MenuItemArrayKey } from '@/symbols';
 import { inject } from 'vue';
 
 const menuItems = inject(MenuItemArrayKey) ?? [];
+// placeholders
+const isNotif = true;
 </script>
 
 <style scoped>
+.header-slot {
+  display: flex;
+  justify-content: space-between;
+}
+
 .menu-cards {
   margin-top: 2.4rem;
   display: grid;
