@@ -9,7 +9,10 @@
           <ion-text>
             <h1>Our Foods</h1>
           </ion-text>
-          <ion-button slot="end">
+          <ion-button
+            fill="clear"
+            slot="end"
+          >
             <ion-icon
               slot="icon-only"
               :icon="bagHandle"
