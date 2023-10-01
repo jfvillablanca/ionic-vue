@@ -64,6 +64,10 @@ export const menuItems: MenuItem[] = [
     category: 'Dessert',
     price: 185,
     rating: 5,
+    reward: {
+      tier: 'Intermediate',
+      points: 30,
+    },
   },
   {
     id: '4',
