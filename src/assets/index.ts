@@ -14,6 +14,7 @@ import avatar from './general/avatar.png';
 import crown from './general/crown.svg';
 import heart from './general/heart.svg';
 import thumbsUp from './general/thumbs-up.png';
+import loyaltyPointsWheel from './general/loyalty-points-wheel.png';
 import menu from './general/menu.svg';
 import notif from './general/notif.svg';
 
@@ -39,6 +40,7 @@ export const general = {
   avatar,
   crown,
   heart,
+  loyaltyPointsWheel,
   menu,
   notif,
   thumbsUp,
