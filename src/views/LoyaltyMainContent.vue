@@ -12,34 +12,59 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content :fullscreen="true">
-      <div id="container">
-        <div>
-          <!-- add crown icon -->
-          <section-header button-text="View All">
-            {{ `${tiers[0]} Tier` }}
-          </section-header>
-          <p>
-            Lorem ipsum dolor sit amet, officia excepteur ex fugiat
-            reprehenderit
-          </p>
-        </div>
-
-        <!-- add progress wheel -->
-
-        <section-header button-text="How it Works">
-          Rewards
+    <ion-content
+      class="ion-padding"
+      :fullscreen="true"
+    >
+      <div class="tier-header">
+        <img
+          :src="crown"
+          alt="crown"
+        >
+        <section-header
+          class="section-header"
+          button-text="View All"
+        >
+          {{ `${tiers[1]} Tier` }}
         </section-header>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit
+      </p>
 
-        <div :style="{ display: 'flex', justifyContent: 'space-around' }">
-          <button
-            v-for="tier in ['All'].concat(tiers)"
-            :key="tier"
-          >
-            {{ tier }}
-          </button>
-        </div>
-        <!-- add reward items (cards) -->
+      <!-- this is a placeholder for the actual -->
+      <div class="loyalty-progress-wheel">
+        <img
+          :src="loyaltyPointsWheel"
+          alt="loyalty points progress wheel placeholder"
+        >
+      </div>
+
+      <section-header button-text="How it Works">
+        Rewards
+      </section-header>
+
+      <div class="reward-buttons">
+        <ion-button
+          v-for="tier in tiers"
+          :key="tier"
+          :class="{ selected: tier === selectedTier }"
+          @click.prevent="selectedTier = tier"
+        >
+          {{ tier }}
+        </ion-button>
+      </div>
+
+      <div
+        v-for="rewardItem in rewardItems"
+        :key="rewardItem.id"
+      >
+        <loyalty-card-item
+          v-if="
+            selectedTier === rewardItem.reward?.tier || selectedTier === 'All'
+          "
+          :reward-item="rewardItem"
+        />
       </div>
     </ion-content>
   </ion-page>
@@ -47,6 +72,7 @@
 
 <script setup lang="ts">
 import {
+  IonButton,
   IonButtons,
   IonContent,
   IonHeader,
@@ -54,29 +80,64 @@ import {
   IonPage,
   IonToolbar,
 } from '@ionic/vue';
-import { SectionHeader } from '@/components';
-const tiers = ['Beginner', 'Intermediate', 'Loyal'];
+import { LoyaltyCardItem, SectionHeader } from '@/components';
+import { inject, ref } from 'vue';
+import { general } from '@/assets';
+import { MenuItemArrayKey } from '@/symbols';
+const { crown, loyaltyPointsWheel } = general;
+const tiers = ['All', 'Beginner', 'Intermediate', 'Loyal'];
+const selectedTier = ref('All');
+
+// placeholders
+const menuItems = inject(MenuItemArrayKey);
+const rewardItems = menuItems?.filter((item) => item.reward);
 </script>
 
-<style scoped>
-#container {
-  position: relative;
-  margin: 1rem;
+<style lang="scss" scoped>
+ion-content {
+  font-weight: 400;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.tier-header {
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 5rem;
+    margin-right: 2rem;
+  }
+
+  .section-header {
+    flex: 1;
+  }
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  color: #8c8c8c;
-  margin: 0;
+.loyalty-progress-wheel {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
 }
 
-#container a {
-  text-decoration: none;
+.reward-buttons {
+  display: flex;
+  justify-content: space-around;
+
+  button {
+    padding: 2rem;
+    border-radius: var(--border-radius-button);
+    font-weight: bold;
+  }
+
+  ion-button {
+    --background: var(--ion-color-medium);
+    --color: var(--ion-color-medium-shade);
+    font-weight: bold;
+  }
+
+  ion-button.selected {
+    --background: var(--ion-color-primary);
+    --color: var(--ion-color-primary-contrast);
+  }
 }
 </style>
